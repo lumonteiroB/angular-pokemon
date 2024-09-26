@@ -1,0 +1,17 @@
+#fugitiveWhite {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  background-color: transparent;
+  left: 100px;
+  top: 100px;
+
+  .red{
+    background-color: red;
+    width: 80px;
+    height: 80px;
+  }
+}

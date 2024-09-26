@@ -1,0 +1,30 @@
+<!-- Search -->
+<poke-search (emmitSearch)="think($event)"></poke-search>
+
+<ng-container *ngIf="loading">
+  <div class="loader">
+    <app-loading></app-loading>
+  </div>
+</ng-container>
+<section class="listagemPok">
+  <ng-template ngFor let-pokemon [ngForOf]="getAllPokemons">
+    <a [routerLink]="['details', pokemon.stats.id]" class="pokemon" *ngIf="pokemon.stats">
+      <section class="pokemon__data">
+        <h2>
+          {{pokemon.name}}
+        </h2>
+        <ul>
+          <li *ngFor="let hab1 of pokemon.stats.types">
+            {{hab1.type.name}}
+          </li>
+          <li> </li>
+        </ul>
+      </section>
+      <section class="pokemon__image">
+        <img [src]="pokemon.stats.sprites.other.dream_world.front_default" [alt]="pokemon.name">
+      </section>
+    </a>
+  </ng-template>
+</section>
+
+<img src="assets/error.png" alt="Deu erro na mostragem do pokemon" width="100%" *ngIf="apiError">
